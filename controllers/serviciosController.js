@@ -76,3 +76,5 @@ const controllerServices = {
     },
 
 };
+
+module.exports = controllerServices;
