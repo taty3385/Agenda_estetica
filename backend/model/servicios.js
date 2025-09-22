@@ -16,6 +16,9 @@ const serviciosSchema = new mongoose.Schema({
     duracion: {
         type: String,
         required: true
+    },
+    dias: {
+        type: [String]
     }
 });
 

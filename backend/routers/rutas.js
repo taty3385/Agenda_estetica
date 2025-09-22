@@ -25,7 +25,7 @@ router.put('/usuarios/:id', authMiddleware, controllerUsuarios.editUser);
 
 
 
-router.get('/servicios', authMiddleware, controllerServicios.getAllServices);
+router.get('/servicios', controllerServicios.getAllServices);
 router.post('/servicios', authMiddleware, controllerServicios.createService);
 router.delete('/servicios/:id', authMiddleware, controllerServicios.deleteService);
 router.put('/servicios/:id', authMiddleware, controllerServicios.updateService);
