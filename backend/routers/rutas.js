@@ -7,6 +7,7 @@ const controllerAdmin = require('../controllers/adminController');
 const { loginLimiter } = require('../middleware/loginLimiter');
 const { validateEmailAndPassword } = require('../middleware/middleware');
 const authMiddleware = require('../middleware/authMiddleware');
+const adminOnly = require('../middleware/adminOnly');
 
 
 
@@ -25,17 +26,17 @@ router.put('/usuarios/:id', authMiddleware, controllerUsuarios.editUser);
 
 
 
-router.get('/servicios', controllerServicios.getAllServices);
+router.get('/servicios', authMiddleware, controllerServicios.getAllServices);
 router.post('/servicios', authMiddleware, controllerServicios.createService);
 router.delete('/servicios/:id', authMiddleware, controllerServicios.deleteService);
 router.put('/servicios/:id', authMiddleware, controllerServicios.updateService);
 router.get('/servicios/:id', authMiddleware, controllerServicios.getServiceById);
 
 
-router.post('/admin/', authMiddleware, controllerAdmin.createAdmin);
-router.get('/admin/', authMiddleware, controllerAdmin.getAdmins);
-router.get('/admin/:id', authMiddleware, controllerAdmin.findAdminById);
-router.delete('/admin/:id', authMiddleware, controllerAdmin.deleteAdmin);
+router.post('/admin/', authMiddleware, adminOnly, controllerAdmin.createAdmin);
+router.get('/admin/', authMiddleware, adminOnly, controllerAdmin.getAdmins);
+router.get('/admin/:id', authMiddleware, adminOnly, controllerAdmin.findAdminById);
+router.delete('/admin/:id', authMiddleware, adminOnly, controllerAdmin.deleteAdmin);
 router.post('/admin/login', loginLimiter, controllerAdmin.loginAdmin);
 
 module.exports = router;
