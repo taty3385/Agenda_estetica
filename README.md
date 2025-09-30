@@ -459,7 +459,7 @@ Este proyecto está bajo la licencia MIT.
 
 ## Autor y contacto
 - Autor: Tamara Zarate
-- Email: taty3385@gmail.com
+- Email: tatyy661@gmail.com
 - GitHub: [taty3385](https://github.com/taty3385)
 
 ---
